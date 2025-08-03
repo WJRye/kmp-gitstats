@@ -1,5 +1,9 @@
 # GitStats Desktop
 
+<p align="left">
+  <img src="./composeApp/src/commonMain/composeResources/drawable/icon.png" alt="GitStats Icon" width="128" height="128"/>
+</p>
+
 **GitStats Desktop** 是一款跨平台的 Git 仓库分析和可视化工具，基于 Kotlin Multiplatform (KMP) 和 Compose Multiplatform (CMP) 开发，帮助你通过交互式图表深入了解代码库和开发活动。
 
 ---
@@ -14,7 +18,7 @@
 **GitStats Desktop** 通过以下方式解决了这些问题：
 
 - 采用现代技术：Kotlin Multiplatform 与 Compose 桌面 UI
-- 原生支持 macOS 和 Windows
+- 原生支持 **macOS** 和 **Windows**
 - 提供流畅且互动性强的 Git 数据可视化
 
 ---

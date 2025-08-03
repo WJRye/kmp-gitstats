@@ -1,5 +1,9 @@
 # GitStats Desktop
 
+<p align="left">
+  <img src="./composeApp/src/commonMain/composeResources/drawable/icon.png" alt="GitStats Icon" width="128" height="128"/>
+</p>
+
 **GitStats Desktop** is a cross-platform Git repository analyzer and visualizer, built with Kotlin Multiplatform (KMP) and Compose Multiplatform (CMP). It helps you understand your codebase and development activities with rich visual insights.
 
 ---
@@ -14,7 +18,7 @@ There are existing tools for Git statistics ([py gitstats](https://pypi.org/proj
 **GitStats Desktop** addresses these problems by:
 
 - Using modern tech: Kotlin Multiplatform & Compose for desktop UI
-- Running natively on macOS, Windows
+- Running natively on **macOS**, **Windows**
 - Providing interactive and smooth visualizations for Git data
 
 ---
