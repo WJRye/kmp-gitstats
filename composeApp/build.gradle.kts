@@ -32,7 +32,16 @@ kotlin {
             implementation(projects.shared)
             implementation(libs.coil.compose)
             implementation(libs.coil.network)
-            implementation(libs.skiko.macos)
+        }
+    }
+    listOf(macosArm64(), macosX64()).forEach { _ ->
+        dependencies {
+            commonMainImplementation(libs.skiko.macos)
+        }
+    }
+    mingwX64 {
+        dependencies {
+            commonMainImplementation(libs.skiko.win)
         }
     }
 }
@@ -41,7 +50,7 @@ compose.desktop {
     application {
         mainClass = "io.github.kmp.gitstats.MainKt"
         nativeDistributions {
-            targetFormats(TargetFormat.Dmg, TargetFormat.Exe)
+            targetFormats(TargetFormat.Dmg, TargetFormat.Pkg, TargetFormat.Exe, TargetFormat.Msi)
             packageName = project.rootProject.findProperty("PACKAGE_NAME") as String
             packageVersion = project.rootProject.findProperty("PACKAGE_VERSION") as String
             macOS {

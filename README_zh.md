@@ -63,4 +63,4 @@
 ```bash
 git clone https://github.com/WJRye/kmp-gitstats.git
 cd kmp-gitstats
-./gradlew packageDistributionForCurrentOS
+./gradlew run

@@ -28,6 +28,9 @@ import io.github.kmp.gitstats.result.Selector
 import io.github.kmp.gitstats.result.TableCell
 import io.github.kmp.gitstats.result.TableHeader
 import io.github.kmp.gitstats.result.TopNInputBox
+import kmp_gitstats.composeapp.generated.resources.Res
+import kmp_gitstats.composeapp.generated.resources.icon
+import org.jetbrains.compose.resources.painterResource
 
 private enum class SortBy(val label: String) {
     COMMITS("By Commits"), LINES_CHANGED("By Lines Changed"), FILES("By Files Changed"), ACTIVE_DAYS(
@@ -106,6 +109,8 @@ fun TopContributors(authorStats: List<AuthorStat>) {
                             model = stat.avatarUrl,
                             contentDescription = "Avatar",
                             modifier = Modifier.wrapContentWidth().clip(CircleShape),
+                            placeholder = painterResource(Res.drawable.icon)
+
                         )
                     }
                 }

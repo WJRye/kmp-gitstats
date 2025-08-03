@@ -42,6 +42,13 @@ class LineAnalyzer {
             return Triple(lines, insertions, deletions)
         }
 
+        if (start.year == end.year) {
+            stats.add(LineStat(dateRange = LocalDateRange(start.date, start.date), lines = 0, lineAdded = 0, lineRemoved = 0))
+            val ret = getLines(currentYear)
+            stats.add(LineStat(dateRange=LocalDateRange(start.date, end.date), lines = ret.first, lineAdded = ret.second, lineRemoved = ret.third))
+            return stats
+        }
+
         if (start.dayOfYear != 1) {
             //add first
             stats.add(LineStat(dateRange = LocalDateRange(start.date, start.date), lines = 0, lineAdded = 0, lineRemoved = 0))

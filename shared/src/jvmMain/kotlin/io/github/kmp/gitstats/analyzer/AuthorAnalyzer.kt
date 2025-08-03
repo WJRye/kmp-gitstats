@@ -47,7 +47,7 @@ class AuthorAnalyzer {
     ): List<AuthorDailyStat> {
         return commits.asSequence().map { (author, authorCommits) ->
             val dailyList =
-                authorCommits.asSequence().groupingBy { it.date.date }.eachCount().asSequence()
+                authorCommits.groupingBy { it.date.date }.eachCount().asSequence()
                     .filter { it.key >= dateRange.first && it.key <= dateRange.last }
                     .map { (date, count) -> DailyContribution(date, count) }.sortedBy { it.date }
                     .toList()
@@ -63,6 +63,12 @@ class AuthorAnalyzer {
     private fun splitDateRangeByYear(start: LocalDate, end: LocalDate): List<LocalDateRange> {
         val yearlyRanges = mutableListOf<LocalDateRange>()
         var currentYear = start.year
+
+        if (start.year == end.year) {
+            yearlyRanges.add(LocalDateRange(start, end))
+            return yearlyRanges.asReversed()
+        }
+
         if (start.dayOfYear != 1) {
             val endOfFirstYear = LocalDate(currentYear, 12, 31)
             yearlyRanges.add(LocalDateRange(start, minOf(end, endOfFirstYear)))
@@ -75,7 +81,6 @@ class AuthorAnalyzer {
             yearlyRanges.add(LocalDateRange(startOfCurrentYear, endOfCurrentYear))
             currentYear++
         }
-
         val startOfLastYear = LocalDate(currentYear, 1, 1)
         yearlyRanges.add(LocalDateRange(maxOf(start, startOfLastYear), end))
         return yearlyRanges.asReversed()
@@ -85,7 +90,7 @@ class AuthorAnalyzer {
         val allCommits = commits.size
         val allLines = commits.sumOf { it.insertions - it.deletions }
         val allFiles = commits.asSequence().flatMap { it.fileInfo.map { f -> f.path } }.toSet().size
-        val authorStats = commits.asSequence().groupBy { it.email }.map { (email, authorCommits) ->
+        val authorStats = commits.groupBy { it.email }.map { (email, authorCommits) ->
             val author = authorCommits.first().author
             val avatar = avatarUrl(email)// gravatar URL by email
             val totalCommits = authorCommits.size
