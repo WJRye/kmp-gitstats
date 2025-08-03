@@ -1,0 +1,41 @@
+# === Kotlin/Gradle ===
+.gradle/
+build/
+**/build/
+
+# === IntelliJ / Android Studio ===
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# === OS files ===
+.DS_Store
+Thumbs.db
+
+# === Kotlin Multiplatform Specific ===
+.kotlin/
+
+# === Distribution files (e.g. .dmg, .exe) ===
+*.dmg
+*.exe
+*.msi
+*.pkg
+*.deb
+*.AppImage
+*.tar.gz
+*.zip
+
+# === Shell history or local scripts ===
+shell/*.log
+shell/*.tmp
+
+# === Logs ===
+*.log
+
+# === Gradle Wrapper ===
+!gradlew
+!gradlew.bat
+!gradle/wrapper/gradle-wrapper.properties
+!gradle/wrapper/gradle-wrapper.jar

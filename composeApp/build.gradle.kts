@@ -1,0 +1,66 @@
+import org.jetbrains.compose.desktop.application.dsl.TargetFormat
+
+
+plugins {
+    alias(libs.plugins.kotlinMultiplatform)
+    alias(libs.plugins.jetbrainsCompose)
+    alias(libs.plugins.compose.compiler)
+}
+
+kotlin {
+
+    jvm("desktop")
+
+    sourceSets {
+        val desktopMain by getting {
+            kotlin.srcDirs("src/desktopMain/kotlin")
+            dependencies {
+                implementation(compose.desktop.currentOs)
+                implementation(libs.kotlinx.coroutines.core)
+            }
+        }
+
+        commonMain.dependencies {
+            implementation(libs.kotlinx.datetime)
+            implementation(libs.kotlinx.coroutines.core)
+            implementation(compose.runtime)
+            implementation(compose.foundation)
+            implementation(compose.material3)
+            implementation(compose.ui)
+            implementation(compose.components.resources)
+            implementation(compose.components.uiToolingPreview)
+            implementation(projects.shared)
+            implementation(libs.coil.compose)
+            implementation(libs.coil.network)
+            implementation(libs.skiko.macos)
+        }
+    }
+}
+
+compose.desktop {
+    application {
+        mainClass = "io.github.kmp.gitstats.MainKt"
+        nativeDistributions {
+            targetFormats(TargetFormat.Dmg, TargetFormat.Exe)
+            packageName = project.rootProject.findProperty("PACKAGE_NAME") as String
+            packageVersion = project.rootProject.findProperty("PACKAGE_VERSION") as String
+            macOS {
+                iconFile.set(project.file("src/commonMain/composeResources/drawable/app_icon_mac.icns"))
+                bundleID = project.rootProject.findProperty("BUNDLE_ID") as String
+            }
+            windows {
+                iconFile.set(project.file("src/commonMain/composeResources/drawable/app_icon_win.ico"))
+                menuGroup = project.rootProject.findProperty("MENU_GROUP") as String
+                upgradeUuid = project.rootProject.findProperty("UPGRADE_UUID") as String
+            }
+        }
+        jvmArgs += listOf(
+            "-Djava.awt.headless=false",
+            "-Dapple.awt.textInputClient=false",
+        )
+    }
+}
+
+
+
+
