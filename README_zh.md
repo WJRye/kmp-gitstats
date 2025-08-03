@@ -57,3 +57,10 @@
 - **Git 命令行工具** 用于仓库数据解析
 
 ---
+
+## 使用
+
+```bash
+git clone https://github.com/WJRye/kmp-gitstats.git
+cd kmp-gitstats
+./gradlew packageDistributionForCurrentOS

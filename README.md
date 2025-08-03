@@ -57,3 +57,10 @@ There are existing tools for Git statistics ([py gitstats](https://pypi.org/proj
 - **Git CLI** for parsing repository data (via command-line interface)
 
 ---
+
+## Usage
+
+```bash
+git clone https://github.com/WJRye/kmp-gitstats.git
+cd kmp-gitstats
+./gradlew packageDistributionForCurrentOS
