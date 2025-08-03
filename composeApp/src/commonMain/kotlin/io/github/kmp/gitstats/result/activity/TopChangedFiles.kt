@@ -26,9 +26,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.lerp
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import io.github.kmp.gitstats.model.TimeRange
-import io.github.kmp.gitstats.model.activity.FileChangesStat
-import io.github.kmp.gitstats.model.activity.FileChangesTimeRangeStat
+import io.github.kmp.gitstats.shared.model.TimeRange
+import io.github.kmp.gitstats.shared.model.activity.FileChangesStat
+import io.github.kmp.gitstats.shared.model.activity.FileChangesTimeRangeStat
 import io.github.kmp.gitstats.result.Selector
 import io.github.kmp.gitstats.result.TopNInputBox
 

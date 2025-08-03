@@ -15,8 +15,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import io.github.kmp.gitstats.DateUtil.Companion.formatToString
-import io.github.kmp.gitstats.model.tag.TagInfo
+import io.github.kmp.gitstats.shared.DateUtil.Companion.formatToString
+import io.github.kmp.gitstats.shared.model.tag.TagInfo
 import io.github.kmp.gitstats.result.TableCell
 import io.github.kmp.gitstats.result.TableHeader
 

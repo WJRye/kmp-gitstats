@@ -23,7 +23,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
-import io.github.kmp.gitstats.model.author.AuthorStat
+import io.github.kmp.gitstats.shared.model.author.AuthorStat
 import io.github.kmp.gitstats.result.Selector
 import io.github.kmp.gitstats.result.TableCell
 import io.github.kmp.gitstats.result.TableHeader

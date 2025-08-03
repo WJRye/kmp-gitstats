@@ -24,10 +24,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import io.github.kmp.gitstats.DateUtil.Companion.formatToString
-import io.github.kmp.gitstats.model.file.FileInfo
-import io.github.kmp.gitstats.model.file.FileTypeStat
-import io.github.kmp.gitstats.model.file.formatSize
+import io.github.kmp.gitstats.shared.DateUtil.Companion.formatToString
+import io.github.kmp.gitstats.shared.model.file.FileInfo
+import io.github.kmp.gitstats.shared.model.file.FileTypeStat
+import io.github.kmp.gitstats.shared.model.file.formatSize
 
 private enum class SortBy(val label: String) {
     COUNT("By Count"), TOTAL_SIZE("By Total Size")

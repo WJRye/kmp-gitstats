@@ -1,7 +1,7 @@
 package io.github.kmp.gitstats.platform
 
-import io.github.kmp.gitstats.model.AnalysisResult
-import io.github.kmp.gitstats.provideGitAnalyzer
+import io.github.kmp.gitstats.shared.model.AnalysisResult
+import io.github.kmp.gitstats.shared.provideGitAnalyzer
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

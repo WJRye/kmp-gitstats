@@ -1,6 +1,7 @@
 package io.github.kmp.gitstats.model
 
-import io.github.kmp.gitstats.RepoStorageProvider
+import io.github.kmp.gitstats.shared.RepoStorageProvider
+import io.github.kmp.gitstats.shared.model.AnalysisResult
 import kotlinx.coroutines.Dispatchers
 
 class ProjectStorage private constructor() {

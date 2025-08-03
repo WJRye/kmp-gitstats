@@ -11,7 +11,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import io.github.kmp.gitstats.model.author.AuthorInfo
+import io.github.kmp.gitstats.shared.model.author.AuthorInfo
 import io.github.kmp.gitstats.result.author.ContributionActivity
 import io.github.kmp.gitstats.result.author.TopContributors
 

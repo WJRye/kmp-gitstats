@@ -2,7 +2,7 @@ package io.github.kmp.gitstats.viewmodel
 
 import io.github.kmp.gitstats.DialogInfo
 import io.github.kmp.gitstats.getDirectoryPicker
-import io.github.kmp.gitstats.model.AnalysisResult
+import io.github.kmp.gitstats.shared.model.AnalysisResult
 import io.github.kmp.gitstats.model.ProjectStorage
 import io.github.kmp.gitstats.platform.AnalyzeProject
 import kotlinx.coroutines.CoroutineScope

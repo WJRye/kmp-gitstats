@@ -29,9 +29,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
-import io.github.kmp.gitstats.model.author.AuthorContributionInfo
-import io.github.kmp.gitstats.model.author.DailyContribution
-import io.github.kmp.gitstats.model.serializer.LocalDateRange
+import io.github.kmp.gitstats.shared.model.author.AuthorContributionInfo
+import io.github.kmp.gitstats.shared.model.author.DailyContribution
+import io.github.kmp.gitstats.shared.model.serializer.LocalDateRange
 import io.github.kmp.gitstats.result.Selector
 import io.github.kmp.gitstats.result.TopNInputBox
 import kotlinx.datetime.DatePeriod

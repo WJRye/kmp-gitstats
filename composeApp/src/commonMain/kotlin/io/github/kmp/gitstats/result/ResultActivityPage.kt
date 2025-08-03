@@ -13,10 +13,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import io.github.kmp.gitstats.DateUtil.Companion.formatToMDString
-import io.github.kmp.gitstats.model.activity.ActivityInfo
-import io.github.kmp.gitstats.model.activity.CommitsChangedStat
-import io.github.kmp.gitstats.model.activity.LinesChangedStat
+import io.github.kmp.gitstats.shared.DateUtil.Companion.formatToMDString
+import io.github.kmp.gitstats.shared.model.activity.ActivityInfo
+import io.github.kmp.gitstats.shared.model.activity.CommitsChangedStat
+import io.github.kmp.gitstats.shared.model.activity.LinesChangedStat
 import io.github.kmp.gitstats.result.activity.CodingTimeHeatmap
 import io.github.kmp.gitstats.result.activity.TopChangedFiles
 

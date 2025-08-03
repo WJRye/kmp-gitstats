@@ -62,6 +62,12 @@ compose.desktop {
                 menuGroup = project.rootProject.findProperty("MENU_GROUP") as String
                 upgradeUuid = project.rootProject.findProperty("UPGRADE_UUID") as String
             }
+            buildTypes.release.proguard {
+                isEnabled.set(true) // Enable ProGuard
+                obfuscate.set(true) // Enable code obfuscation (not just shrink)
+                optimize.set(true)
+                configurationFiles.from(project.file("proguard-rules.pro"))
+            }
         }
         jvmArgs += listOf(
             "-Djava.awt.headless=false",

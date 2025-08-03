@@ -25,9 +25,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.lerp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import io.github.kmp.gitstats.model.TimeRange
-import io.github.kmp.gitstats.model.activity.CodingTimeRangeStat
-import io.github.kmp.gitstats.model.activity.CodingTimeStat
+import io.github.kmp.gitstats.shared.model.TimeRange
+import io.github.kmp.gitstats.shared.model.activity.CodingTimeRangeStat
+import io.github.kmp.gitstats.shared.model.activity.CodingTimeStat
 import io.github.kmp.gitstats.result.Selector
 
 

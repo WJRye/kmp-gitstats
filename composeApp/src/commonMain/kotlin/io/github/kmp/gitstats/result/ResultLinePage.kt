@@ -2,9 +2,9 @@ package io.github.kmp.gitstats.result
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import io.github.kmp.gitstats.DateUtil.Companion.formatToString
-import io.github.kmp.gitstats.model.line.LineInfo
-import io.github.kmp.gitstats.model.line.formatLine
+import io.github.kmp.gitstats.shared.DateUtil.Companion.formatToString
+import io.github.kmp.gitstats.shared.model.line.LineInfo
+import io.github.kmp.gitstats.shared.model.line.formatLine
 
 
 private enum class LineLabel(val color: Color, val label: String) {
