@@ -26,6 +26,9 @@ kotlin {
             implementation(libs.kotlin.test)
         }
     }
+    mingwX64()
+    macosArm64()
+    macosX64()
 }
 
 val generateBuildConfig by tasks.registering {
