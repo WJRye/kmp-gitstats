@@ -39,3 +39,5 @@ shell/*.tmp
 !gradlew.bat
 !gradle/wrapper/gradle-wrapper.properties
 !gradle/wrapper/gradle-wrapper.jar
+
+local.properties
