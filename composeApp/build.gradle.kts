@@ -63,6 +63,7 @@ compose.desktop {
                 upgradeUuid = project.rootProject.findProperty("UPGRADE_UUID") as String
             }
             buildTypes.release.proguard {
+                version.set("7.2.2")
                 isEnabled.set(true) // Enable ProGuard
                 obfuscate.set(true) // Enable code obfuscation (not just shrink)
                 optimize.set(true)
