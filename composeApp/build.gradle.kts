@@ -8,7 +8,7 @@ plugins {
 }
 
 kotlin {
-
+    jvmToolchain(17)
     jvm("desktop")
 
     sourceSets {
@@ -48,7 +48,7 @@ kotlin {
 
 compose.desktop {
     application {
-        mainClass = "io.github.kmp.gitstats.MainKt"
+        mainClass = project.rootProject.findProperty("MAIN_CLASS") as String
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Pkg, TargetFormat.Exe, TargetFormat.Msi)
             packageName = project.rootProject.findProperty("PACKAGE_NAME") as String
