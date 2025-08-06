@@ -2,14 +2,6 @@ package io.github.kmp.gitstats.shared
 
 import io.github.kmp.gitstats.shared.model.UserConfig
 
-
-class JvmPlatform : Platform {
-    override val name: String = "Jvm"
-}
-
-actual fun getPlatform(): Platform = JvmPlatform()
-
-
 actual fun provideGitAnalyzer(repoPath: String): GitAnalyzer {
     return JvmGitAnalyzer(repoPath)
 }
