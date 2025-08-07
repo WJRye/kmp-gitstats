@@ -14,7 +14,7 @@ kotlin {
     applyDefaultHierarchyTemplate()
     jvm()
     sourceSets {
-        val commonMain by getting {
+        commonMain {
             kotlin.srcDirs("src/commonMain/kotlin")
             kotlin.srcDir(layout.buildDirectory.dir("generated/config/commonMain"))
             dependencies {

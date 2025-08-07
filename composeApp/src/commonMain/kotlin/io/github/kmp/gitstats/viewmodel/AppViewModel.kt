@@ -107,11 +107,7 @@ class AppViewModel {
 
     private fun handleAddRepoIntent() {
         val selectedFiles = directoryPicker.chooseDirectory()
-        for (file in selectedFiles) {
-            if (!repos.contains(file)) {
-                _repos.add(file)
-            }
-        }
+        _repos.addAll(selectedFiles)
         viewModelScope.launch {
             projectStorage.save(_repos)
         }
