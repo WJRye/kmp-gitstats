@@ -37,14 +37,13 @@ fun RepoSection(
     appViewModel: AppViewModel
 ) {
     appViewModel.sendRepoIntent(RepoIntent.LoadIntent())
-    val reposState by appViewModel.reposState.collectAsState()
     var selectedRepo by remember { mutableStateOf("") }
     val pullResult = appViewModel.pullResult.collectAsState()
     if (pullResult.value.isNotEmpty()) {
         SnackbarManager.show(pullResult.value, SnackbarDuration.Long)
     }
     LazyColumn(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-        items(reposState, key = { it.hashCode() }) { repo ->
+        items(appViewModel.repos, key = { it.hashCode() }) { repo ->
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(12.dp),

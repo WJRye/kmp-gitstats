@@ -1,10 +1,12 @@
 package io.github.kmp.gitstats.viewmodel
 
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.snapshots.SnapshotStateList
 import io.github.kmp.gitstats.DialogInfo
 import io.github.kmp.gitstats.getDirectoryPicker
-import io.github.kmp.gitstats.shared.model.AnalysisResult
 import io.github.kmp.gitstats.model.ProjectStorage
 import io.github.kmp.gitstats.platform.AnalyzeProject
+import io.github.kmp.gitstats.shared.model.AnalysisResult
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -19,8 +21,8 @@ class AppViewModel {
 
     private val _loadingDialog = MutableStateFlow(DialogInfo())
     val loadingDialog: StateFlow<DialogInfo> = _loadingDialog
-    private val _reposState = MutableStateFlow(emptyList<String>())
-    val reposState: StateFlow<List<String>> = _reposState
+    private val _repos: SnapshotStateList<String> = mutableStateListOf()
+    val repos: List<String> = _repos
 
     private val _analysisResult = MutableStateFlow(AnalysisResult())
     val analysisResult: StateFlow<AnalysisResult> = _analysisResult
@@ -86,16 +88,12 @@ class AppViewModel {
     }
 
     private fun handleDeleteRepoIntent(intent: RepoIntent.DeleteIntent) {
-        val repos = _reposState.value
-        val newRepos = mutableListOf<String>()
-        newRepos.addAll(repos)
-        newRepos.remove(intent.repo)
-        _reposState.value = newRepos
+        _repos.remove(intent.repo)
         if (intent.repo == _analysisResult.value.repoPath) {
             _analysisResult.value = AnalysisResult()
         }
         viewModelScope.launch {
-            projectStorage.save(newRepos)
+            projectStorage.save(_repos)
             projectStorage.deleteRepoStats(intent.repo)
         }
     }
@@ -103,23 +101,19 @@ class AppViewModel {
     private fun handleLoadRepoIntent() {
         viewModelScope.launch {
             val lastRepos = projectStorage.load()
-            _reposState.value = lastRepos
+            _repos.addAll(lastRepos)
         }
     }
 
     private fun handleAddRepoIntent() {
-        val repos = _reposState.value
-        val newRepos = mutableListOf<String>()
-        newRepos.addAll(repos)
         val selectedFiles = directoryPicker.chooseDirectory()
         for (file in selectedFiles) {
             if (!repos.contains(file)) {
-                newRepos.add(file)
+                _repos.add(file)
             }
         }
-        _reposState.value = newRepos
         viewModelScope.launch {
-            projectStorage.save(newRepos)
+            projectStorage.save(_repos)
         }
     }
 
