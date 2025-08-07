@@ -1,5 +1,6 @@
-package io.github.kmp.gitstats.shared
+package io.github.kmp.gitstats.shared.platform
 
+import io.github.kmp.gitstats.shared.AppDirs
 import io.github.kmp.gitstats.shared.model.AnalysisResult
 import kotlinx.serialization.json.Json
 import java.io.File

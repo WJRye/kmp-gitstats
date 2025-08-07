@@ -1,4 +1,4 @@
-package io.github.kmp.gitstats.shared
+package io.github.kmp.gitstats.shared.platform
 
 interface LocalLanguage {
     fun isEnglish(): Boolean

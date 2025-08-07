@@ -1,6 +1,9 @@
 package io.github.kmp.gitstats.shared
 
 import io.github.kmp.gitstats.shared.model.UserConfig
+import io.github.kmp.gitstats.shared.platform.GitAnalyzer
+import io.github.kmp.gitstats.shared.platform.LocalLanguage
+import io.github.kmp.gitstats.shared.platform.RepoStorage
 
 
 expect fun provideGitAnalyzer(repoPath: String): GitAnalyzer

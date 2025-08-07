@@ -1,16 +1,23 @@
-package io.github.kmp.gitstats.shared
+package io.github.kmp.gitstats.shared.platform
 
 
+import io.github.kmp.gitstats.shared.DateUtil
 import io.github.kmp.gitstats.shared.DateUtil.Companion.isoDateToLocalDateTime
+import io.github.kmp.gitstats.shared.GIT_BRANCH
+import io.github.kmp.gitstats.shared.GIT_LOG_COMMIT
+import io.github.kmp.gitstats.shared.GIT_PULL
 import io.github.kmp.gitstats.shared.analyzer.ActivityAnalyzer
 import io.github.kmp.gitstats.shared.analyzer.AuthorAnalyzer
 import io.github.kmp.gitstats.shared.analyzer.FileAnalyzer
 import io.github.kmp.gitstats.shared.analyzer.LineAnalyzer
 import io.github.kmp.gitstats.shared.analyzer.OverviewAnalyzer
 import io.github.kmp.gitstats.shared.analyzer.TagAnalyzer
+import io.github.kmp.gitstats.shared.execute
 import io.github.kmp.gitstats.shared.model.AnalysisResult
 import io.github.kmp.gitstats.shared.model.CommitFileInfo
 import io.github.kmp.gitstats.shared.model.CommitInfo
+import io.github.kmp.gitstats.shared.processed
+import io.github.kmp.gitstats.shared.processing
 
 /**
  * JVM implementation of the GitAnalyzer interface.
@@ -88,7 +95,7 @@ class JvmGitAnalyzer(val repoPath: String) : GitAnalyzer {
     }
 
     override fun analyze(): AnalysisResult {
-        val startTime = DateUtil.currentMilliseconds()
+        val startTime = DateUtil.Companion.currentMilliseconds()
         val commits = getAllCommitsByGitCommand()
         val activityInfo = activityAnalyzer.getActivityInfo(commits)
         val authorInfo = authorAnalyzer.getAuthorInfo(commits)
