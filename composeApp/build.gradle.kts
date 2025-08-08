@@ -34,14 +34,19 @@ kotlin {
             implementation(libs.coil.network)
         }
     }
-    listOf(macosArm64(), macosX64()).forEach { _ ->
+    macosArm64 {
         dependencies {
-            commonMainImplementation(libs.skiko.macos)
+            commonMainImplementation(libs.skiko.macos.arm64)
+        }
+    }
+    macosX64 {
+        dependencies {
+            commonMainImplementation(libs.skiko.macos.x64)
         }
     }
     mingwX64 {
         dependencies {
-            commonMainImplementation(libs.skiko.win)
+            commonMainImplementation(libs.skiko.win.x64)
         }
     }
 }
