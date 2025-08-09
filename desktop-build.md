@@ -75,25 +75,28 @@ To resolve this, you can use `commonMainImplementation` to add dependencies to `
 
 ```kotlin
 kotlin {
-    jvmToolchain(17)
+    jvmToolchain(17)
+    jvm("desktop")
 
-    sourceSets {
-        commonMain.dependencies {
-            
-        }
-    }
-    //Mac
-    listOf(macosArm64(), macosX64()).forEach { _ ->
-        dependencies {
-            commonMainImplementation(libs.skiko.macos)
-        }
-    }
-    //Win
-    mingwX64 {
-        dependencies {
-            commonMainImplementation(libs.skiko.win)
-        }
-    }
+    sourceSets {
+        commonMain.dependencies {
+        }
+    }
+    macosArm64 {
+        dependencies {
+            commonMainImplementation(libs.skiko.macos.arm64)
+        }
+    }
+    macosX64 {
+        dependencies {
+            commonMainImplementation(libs.skiko.macos.x64)
+        }
+    }
+    mingwX64 {
+        dependencies {
+            commonMainImplementation(libs.skiko.win.x64)
+        }
+    }
 }
 ```
 
